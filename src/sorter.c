@@ -48,6 +48,8 @@ void get_strings(size_t strings_count, char** strings_arr,FILE *input_file)
     fseek(input_file, 0, SEEK_SET);
     for (unsigned int i = 0; i < strings_count; i++){
         p = fgets(strings_arr[i], MAX_INPUT_STRING_SIZE, input_file);
+        if (ferror(input_file))
+            error("Reading error")
     }
 }
 
