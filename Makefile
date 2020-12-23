@@ -24,4 +24,4 @@ $(OBJECTS): $(SOURCE)  $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c -o $(OBJECTS) $(SOURCE)
 
 clean:
-	rm -r $(BUILD_DIR)/
+	$(RM) -r $(BUILD_DIR)/
