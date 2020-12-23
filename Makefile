@@ -12,6 +12,8 @@ PASS_TEST = true
 FAIL_TEST = false
 
 .PHONY: all check clean
+.INTERMEDIATE: $(OBJECTS)
+.SECONDARY: $(EXEC)
 
 all: $(EXEC)
 
