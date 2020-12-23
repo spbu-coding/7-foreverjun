@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-//
+
 #define  MAX_INPUT_STRING_SIZE 1000
 #define error(...) fprintf(stderr,__VA_ARGS__)
 
@@ -44,9 +44,10 @@ void strings_output (char **strings_arr, size_t strings_count)
 }
 void get_strings(size_t strings_count, char** strings_arr,FILE *input_file)
 {
+    char *p;
     fseek(input_file, 0, SEEK_SET);
     for (unsigned int i = 0; i < strings_count; i++){
-        fgets(strings_arr[i], MAX_INPUT_STRING_SIZE, input_file);
+        p = fgets(strings_arr[i], MAX_INPUT_STRING_SIZE, input_file);
     }
 }
 
