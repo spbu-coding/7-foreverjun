@@ -38,9 +38,23 @@ int check_number_of_strings(size_t *string_count, FILE *input_file)
 }
 void strings_output (char **strings_arr, size_t strings_count)
 {
+    unsigned int m = 0, j = 0;
+    char *buffer = malloc(sizeof(char)*MAX_INPUT_STRING_SIZE);
     for (unsigned int i = 0; i < strings_count && i < 100; i++){
-        printf("%s", strings_arr[i]);
+        while (j < MAX_INPUT_STRING_SIZE){
+            if (strings_arr[i][j] == '.' || strings_arr[i][j] == ',' || strings_arr[i][j] == ';' ||
+                strings_arr[i][j] == ':' ||strings_arr[i][j] == '!' || strings_arr[i][j] == '?' ){
+                j++;
+            }
+            buffer[m] = strings_arr[i][j];
+            j++;
+            m++;
+        }
+        j = 0;
+        m = 0;
+        printf("%s", buffer);
     }
+    free(buffer);
 }
 void get_strings(size_t strings_count, char** strings_arr,FILE *input_file)
 {
